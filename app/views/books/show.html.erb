@@ -26,12 +26,30 @@
 </p>
 
 <% if @book.authors.present? %>
-<p><strong>Author:</strong></p>
+<p><strong>Authors:</strong></p>
 <ul>
-<% @book.authors.each do |author| %>
-<li><%= author.name %></li>
+<% @book.authors.each do |author|  %>
+<li><%=author.name%></li> 
 <% end %>
 </ul>
+<% end %>
+
+<% if @loaned_users.present? %>
+<p><strong>Loaned User:</strong></p>
+<ul>
+<% @loaned_users.each do |user|  %>
+<li><%=user.full_name%></li> 
+<% end %>
+</ul>
+<% end %>
+
+<% if @book.users.present? %>
+<p><strong>Users:</strong></p>
+  <ul>
+    <% @book.users.each do |user| %>
+      <li><%= user.full_name %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

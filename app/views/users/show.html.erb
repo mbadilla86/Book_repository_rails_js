@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>First name:</strong>
+<%= @user.first_name %>
+</p>
+
+<p>
+<strong>Last name:</strong>
+<%= @user.last_name %>
+</p>
+
+<% if @loaned_books.present? %>
+<p><strong>Loaned Books:</strong></p>
+<ul>
+<% @loaned_books.each do |book| %>
+<li><%= book.title %></li>
+<% end %>
+</ul>
+<% end %>
+
+<% if @user.books.present? %>
+<p><strong>Books:</strong></p>
+<ul>
+<% @user.books.each do |book| %>
+<li><%= book.title%></li>
+<% end %>
+</ul>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
